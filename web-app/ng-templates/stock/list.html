@@ -1,0 +1,42 @@
+
+<div class="page-header">
+    <h1>Stock List</h1>
+</div>
+<alert level="{{message.level}}" text="{{message.text}}"/>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+        
+            <th data-sortable="ticker">Ticker</th>
+            
+            <th data-sortable="price">Price</th>
+            
+            <th data-sortable="priceLastUpdated">Price Last Updated</th>
+            
+            <th data-sortable="percentageChange">Percentage Change</th>
+            
+            <th data-sortable="valueChange">Value Change</th>
+            
+            <th data-sortable="ytdReturn">Ytd Return</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="item in list" data-ng-click="show(item)">
+            
+            <td>{{item.ticker}}</td>
+            
+            <td>{{item.price}}</td>
+            
+            <td>{{item.priceLastUpdated}}</td>
+            
+            <td>{{item.percentageChange}}</td>
+            
+            <td>{{item.valueChange}}</td>
+            
+            <td>{{item.ytdReturn}}</td>
+            
+        </tr>
+    </tbody>
+</table>
+<div class="pagination pagination-centered" data-pagination data-total="total"></div>

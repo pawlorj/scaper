@@ -1,0 +1,74 @@
+
+<div class="page-header">
+	<h1>Create Stock</h1>
+</div>
+<alert level="{{message.level}}" text="{{message.text}}"/>
+<form name="form" data-ng-submit="save(item)" class="form-horizontal">
+
+	<div class="control-group" data-ng-class="{error: errors.ticker}">
+		<label class="control-label" for="ticker">Ticker</label>
+		<div class="controls">
+            <input type="text" id="ticker" name="ticker" data-ng-model="item.ticker">
+
+			<span class="help-inline" data-ng-show="errors.ticker">{{errors.ticker}}</span>
+		</div>
+	</div>
+	
+	<div class="control-group" data-ng-class="{error: errors.price}">
+		<label class="control-label" for="price">Price</label>
+		<div class="controls">
+            <input type="text" id="price" name="price" data-ng-model="item.price">
+
+			<span class="help-inline" data-ng-show="errors.price">{{errors.price}}</span>
+		</div>
+	</div>
+	
+	<div class="control-group" data-ng-class="{error: errors.priceLastUpdated}">
+		<label class="control-label" for="priceLastUpdated">Price Last Updated</label>
+		<div class="controls">
+            
+
+			<span class="help-inline" data-ng-show="errors.priceLastUpdated">{{errors.priceLastUpdated}}</span>
+		</div>
+	</div>
+	
+	<div class="control-group" data-ng-class="{error: errors.percentageChange}">
+		<label class="control-label" for="percentageChange">Percentage Change</label>
+		<div class="controls">
+            <input type="text" id="percentageChange" name="percentageChange" data-ng-model="item.percentageChange">
+
+			<span class="help-inline" data-ng-show="errors.percentageChange">{{errors.percentageChange}}</span>
+		</div>
+	</div>
+	
+	<div class="control-group" data-ng-class="{error: errors.valueChange}">
+		<label class="control-label" for="valueChange">Value Change</label>
+		<div class="controls">
+            <input type="text" id="valueChange" name="valueChange" data-ng-model="item.valueChange">
+
+			<span class="help-inline" data-ng-show="errors.valueChange">{{errors.valueChange}}</span>
+		</div>
+	</div>
+	
+	<div class="control-group" data-ng-class="{error: errors.ytdReturn}">
+		<label class="control-label" for="ytdReturn">Ytd Return</label>
+		<div class="controls">
+            <input type="text" id="ytdReturn" name="ytdReturn" data-ng-model="item.ytdReturn">
+
+			<span class="help-inline" data-ng-show="errors.ytdReturn">{{errors.ytdReturn}}</span>
+		</div>
+	</div>
+	
+	<div class="control-group" data-ng-class="{error: errors.name}">
+		<label class="control-label" for="name">Name</label>
+		<div class="controls">
+            <input type="text" id="name" name="name" data-ng-model="item.name">
+
+			<span class="help-inline" data-ng-show="errors.name">{{errors.name}}</span>
+		</div>
+	</div>
+	
+	<div class="form-actions">
+		<button type="submit" class="btn btn-primary" data-ng-disabled="form.$invalid"><i class="icon-ok"></i> Create</button>
+	</div>
+</form>
