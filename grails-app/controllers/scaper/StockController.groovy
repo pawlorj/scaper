@@ -1,22 +1,19 @@
 package scaper
 
 import org.springframework.dao.DataIntegrityViolationException
+
 import grails.converters.JSON
 import static javax.servlet.http.HttpServletResponse.*
+import static org.codehaus.groovy.grails.web.servlet.HttpHeaders.*
 
 class StockController {
 
     static final int SC_UNPROCESSABLE_ENTITY = 422
 
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
-    def index() { }
-
-    def list() {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-		response.setIntHeader('X-Pagination-Total', Stock.count())
-		render Stock.list(params) as JSON
-    }
+	def index(Integer max) { 
+		params.max = Math.min(max ?: 10, 100)
+		respond Stock.list(params), model:[stockCount: Stock.count()]
+	}
 
     def save() {
         def stockInstance = new Stock(request.JSON)
@@ -34,15 +31,10 @@ class StockController {
         render responseJson as JSON
     }
 
-    def get() {
-        def stockInstance = Stock.get(params.id)
-        if (stockInstance) {
-			render stockInstance as JSON
-        } else {
-			notFound params.id
-		}
-    }
-
+	def show(Stock s) {
+	    respond s
+	}
+	
     def update() {
         def stockInstance = Stock.get(params.id)
         if (!stockInstance) {

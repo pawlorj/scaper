@@ -26,7 +26,7 @@ grails.project.dependency.resolver = "maven" // or ivy
 grails.plugin.location.yqlFinance =
 "/Users/bobp/dev/workspace-ggts-3.4.0.RELEASE/yqlFinance"
 
-grails.plugin.location.'angular-scaffolding' = '../grails-angular-scaffolding'
+//grails.plugin.location.'angular-scaffolding' = '../grails-angular-scaffolding'
 
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
@@ -70,7 +70,6 @@ grails.project.dependency.resolution = {
         compile ':cache:1.1.1'
 		compile ":console:1.2"
 		compile ':cache-headers:1.1.5'
-		compile ':gson:1.1.4'
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.6" // or ":hibernate4:4.1.11.1"
@@ -80,6 +79,8 @@ grails.project.dependency.resolution = {
         // Uncomment these (or add new ones) to enable additional resources capabilities
         runtime ":zipped-resources:1.0.1"
         runtime ":cached-resources:1.1"
+		runtime ":twitter-bootstrap:3.1.0"
+		runtime ":angularjs-resources:1.2.11"
         //runtime ":yui-minify-resources:0.1.5"
 		
 		compile ":csv:0.3.1"
